@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { client } from "./lib/microcms/client";
+import { Button } from "./components/Button";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Blog from "./Blog";
+import Home from "./Home";
 
 function App() {
   const [titles, setTitles] = useState([]);
@@ -23,16 +27,25 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello World</h1>
-        <ul>
-          {titles.map((title, index) => (
-            <li key={index}>{title}</li> // タイトルを表示
-          ))}
-        </ul>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <h1>Hello World</h1>
+          <ul>
+            {titles.map((title, index) => (
+              <li key={index}>{title}</li> // タイトルを表示
+            ))}
+          </ul>
+          <Button title="ブログ一覧へ" link="/blog" />
+          <Button title="ホームへ" link="/" />
+        </header>
+        {/* ルートとコンポーネントのマッピング */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
