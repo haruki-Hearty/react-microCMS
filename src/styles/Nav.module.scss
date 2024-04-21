@@ -12,6 +12,7 @@
     align-items: flex-start;
     gap: 30px;
     padding-left: 50px;
+    transition: all .3s;
   }
 }
 
@@ -25,7 +26,8 @@
 
 .list a:hover {
   @media (hover: hover) {
-    color: red;
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
 }
 .list a:active {
@@ -38,19 +40,50 @@
 .menuButton {
   display: none;
   @media (max-width: 768px) {
-    display: block;
+    all: unset;
+    outline: revert;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
     position: relative;
     z-index: 200;
   }
 }
 
+.menuButton::before,
+.menuButton::after,
+.bar {
+  grid-area: 1/1;
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: currentColor;
+  transition: transform .4s;
+}
+
+.close .menuButton::before {
+  transform: translateY(-8px);
+}
+.close .menuButton::after {
+  transform: translateY(8px);
+}
+
+.open .menuButton::before {
+  transform: rotate(45deg);
+}
+.open .menuButton::after {
+  transform: rotate(-45deg);
+}
+.open .bar {
+  transform: scale(0);
+}
+
 .close .menuButton {
   @media (max-width: 768px) {
-    color: blue;
-  }
-}
-.open .menuButton {
-  @media (max-width: 768px) {
-    color: red;
+    color: #333;
   }
 }
