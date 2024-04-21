@@ -1,0 +1,21 @@
+.lists {
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+}
+
+.list {
+  font-size: 18px;
+}
+
+.list a:hover {
+  @media (hover: hover) {
+    color: red;
+  }
+}
+.list a:active {
+  @media (hover: none) {
+    -webkit-tap-highlight-color: transparent;
+    color: red;
+  }
+}

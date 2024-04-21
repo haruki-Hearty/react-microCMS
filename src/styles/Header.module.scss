@@ -1,0 +1,16 @@
+.header {
+  height: 50px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin-inline: auto;
+  height: inherit;
+}
+
+.logo {
+  font-size: 18px;
+}

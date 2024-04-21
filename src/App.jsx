@@ -4,6 +4,7 @@ import { LinkButton } from "./components/LinkButton";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blog from "./Blog";
 import Home from "./Home";
+import { Header } from "./components/Header";
 
 function App() {
   const [titles, setTitles] = useState([]);
@@ -29,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Header />
         <header className="App-header">
           <h1>Hello World</h1>
           <ul>
