@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { client } from "./lib/microcms/client";
-import { Button } from "./components/Button";
+import { LinkButton } from "./components/LinkButton";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blog from "./Blog";
 import Home from "./Home";
@@ -36,8 +36,8 @@ function App() {
               <li key={index}>{title}</li> // タイトルを表示
             ))}
           </ul>
-          <Button title="ブログ一覧へ" link="/blog" />
-          <Button title="ホームへ" link="/" />
+          <LinkButton title="ブログ一覧へ" link="/blog" />
+          <LinkButton title="ホームへ" link="/" />
         </header>
         {/* ルートとコンポーネントのマッピング */}
         <Routes>
