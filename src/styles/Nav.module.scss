@@ -2,10 +2,25 @@
   display: flex;
   align-items: center;
   gap: 1.25em;
+  @media (max-width: 768px) {
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 100;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding-left: 50px;
+  }
 }
 
 .list {
   font-size: 18px;
+}
+
+.open .lists {
+  transform: translateX(-100%);
 }
 
 .list a:hover {
@@ -16,6 +31,26 @@
 .list a:active {
   @media (hover: none) {
     -webkit-tap-highlight-color: transparent;
+    color: red;
+  }
+}
+
+.menuButton {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: relative;
+    z-index: 200;
+  }
+}
+
+.close .menuButton {
+  @media (max-width: 768px) {
+    color: blue;
+  }
+}
+.open .menuButton {
+  @media (max-width: 768px) {
     color: red;
   }
 }

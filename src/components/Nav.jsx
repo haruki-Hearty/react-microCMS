@@ -1,13 +1,19 @@
+import { useState } from "react";
 import styles from "../styles/Nav.module.scss";
 import { Link } from "react-router-dom";
 
 export const Nav = () => {
+  const [navIsOpen, setNavIsOpen] = useState(false)
+
+  const toggleNav = () => {
+    setNavIsOpen((prev) => !prev)
+  }
   return (
-    <nav>
-      <button className={styles.menuButton}>menu</button>
+    <nav className={navIsOpen ? styles.open : styles.close}>
+      <button className={styles.menuButton} onClick={toggleNav}>menu</button>
       <ul className={styles.lists}>
           <li className={styles.list}>
-            <Link to="/">TOP</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li className={styles.list}>
             <Link to="/ABOUT">ABOUT</Link>
