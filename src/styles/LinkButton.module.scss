@@ -1,0 +1,27 @@
+.link {
+  position: relative;
+  display: inline-block;
+  border: solid 1px #333;
+  padding:16px 40px;
+  min-width: 130px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    padding: 10px 30px;
+    min-width: 130px;
+  }
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 6px;
+  /* background: url(/public/arrow.svg)no-repeat center; */
+  background: url(../../public/arrow.svg)no-repeat center;
+}
