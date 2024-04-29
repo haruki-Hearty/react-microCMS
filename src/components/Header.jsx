@@ -12,7 +12,6 @@ export const Header = () => {
           </Link>
         </h1>
         <Nav />
-
       </div>
     </header>
   );

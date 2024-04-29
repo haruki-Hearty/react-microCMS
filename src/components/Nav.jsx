@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export const Nav = () => {
   const [navIsOpen, setNavIsOpen] = useState(false);
 
+  // iosでスクロールを止めれない
   useEffect(() => {
     if (navIsOpen) {
       document.body.style.overflow = "hidden";
@@ -13,7 +14,7 @@ export const Nav = () => {
     }
   }, [navIsOpen]);
 
-  const linkPages = [
+  const NAV_MENU = [
     {
       path: "/",
       pageName: "HOME",
@@ -40,7 +41,6 @@ export const Nav = () => {
     },
     
   ];
-  console.log(linkPages);
   const toggleNav = () => {
     setNavIsOpen((prev) => !prev);
   };
@@ -58,9 +58,9 @@ export const Nav = () => {
         <span className={styles.bar}></span>
       </button>
       <ul className={styles.lists}>
-        {linkPages.map((page) => (
-          <li className={styles.list} key={page.pageName}>
-            <Link onClick={closeNav} to={page.path}>{page.pageName}</Link>
+        {NAV_MENU.map((item) => (
+          <li className={styles.list} key={item.pageName}>
+            <Link onClick={closeNav} to={item.path}>{item.pageName}</Link>
           </li>
         ))}
       </ul>
