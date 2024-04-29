@@ -31,16 +31,16 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <header className="App-header">
-          <h1>Hello World</h1>
-          <ul>
-            {titles.map((title, index) => (
-              <li key={index}>{title}</li> // タイトルを表示
-            ))}
-          </ul>
-          <LinkButton title="ブログ一覧へ" link="/blog" />
-          <LinkButton title="ホームへ" link="/" />
-        </header>
+
+        {/* 記事の取得　別のコンポーネントで考えた方がいい？ */}
+        <ul>
+          {titles.map((title, index) => (
+            <li key={index}>{title}</li> // タイトルを表示
+          ))}
+        </ul>
+
+        <LinkButton title="ブログ一覧へ" link="/blog" />
+        <LinkButton title="ホームへ" link="/" />
         {/* ルートとコンポーネントのマッピング */}
         <Routes>
           <Route path="/" element={<Home />} />
