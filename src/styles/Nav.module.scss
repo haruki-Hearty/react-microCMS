@@ -12,7 +12,7 @@
     align-items: flex-start;
     gap: 30px;
     padding-left: 50px;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 }
 
@@ -24,14 +24,14 @@
   transform: translateX(-100%);
 }
 
-.list a:hover {
-  @media (hover: hover) {
+@media (hover: hover) {
+  .list a:hover {
     text-decoration: underline;
     text-underline-offset: 5px;
   }
 }
-.list a:active {
-  @media (hover: none) {
+@media (hover: none) {
+  .list a:active {
     -webkit-tap-highlight-color: transparent;
     color: red;
   }
@@ -62,7 +62,7 @@
   width: 30px;
   height: 1px;
   background: currentColor;
-  transition: transform .4s;
+  transition: transform 0.4s;
 }
 
 .close .menuButton::before {
