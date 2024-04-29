@@ -59,7 +59,7 @@ export const Nav = () => {
       </button>
       <ul className={styles.lists}>
         {linkPages.map((page) => (
-          <li key={page.pageName}>
+          <li className={styles.list} key={page.pageName}>
             <Link onClick={closeNav} to={page.path}>{page.pageName}</Link>
           </li>
         ))}
