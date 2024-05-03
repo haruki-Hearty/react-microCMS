@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blog from "./Blog";
 import Home from "./Home";
 import { Header } from "./components/header/Header";
+import { Footer } from "./components/footer";
 
 function App() {
   const [titles, setTitles] = useState([]);
@@ -38,7 +39,7 @@ function App() {
             <li key={index}>{title}</li> // タイトルを表示
           ))}
         </ul>
-
+        <Footer />
         <LinkButton title="ブログ一覧へ" link="/blog" />
         <LinkButton title="ホームへ" link="/" />
         {/* ルートとコンポーネントのマッピング */}
