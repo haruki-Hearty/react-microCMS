@@ -1,0 +1,89 @@
+.lists {
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+  @media (max-width: 768px) {
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 100;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding-left: 50px;
+    transition: all 0.3s;
+  }
+}
+
+.list {
+  font-size: 18px;
+}
+
+.open .lists {
+  transform: translateX(-100%);
+}
+
+@media (hover: hover) {
+  .list a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+}
+@media (hover: none) {
+  .list a:active {
+    -webkit-tap-highlight-color: transparent;
+    color: red;
+  }
+}
+
+.menuButton {
+  display: none;
+  @media (max-width: 768px) {
+    all: unset;
+    outline: revert;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 200;
+  }
+}
+
+.menuButton::before,
+.menuButton::after,
+.bar {
+  grid-area: 1/1;
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.4s;
+}
+
+.close .menuButton::before {
+  transform: translateY(-8px);
+}
+.close .menuButton::after {
+  transform: translateY(8px);
+}
+
+.open .menuButton::before {
+  transform: rotate(45deg);
+}
+.open .menuButton::after {
+  transform: rotate(-45deg);
+}
+.open .bar {
+  transform: scale(0);
+}
+
+.close .menuButton {
+  @media (max-width: 768px) {
+    color: #333;
+  }
+}

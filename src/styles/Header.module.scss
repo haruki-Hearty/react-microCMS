@@ -1,0 +1,20 @@
+.header {
+  height: 50px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 25px;
+  margin-inline: auto;
+  height: inherit;
+  @media (max-width: 768px) {
+    padding-left: 16px;
+    padding-right: 0;
+  }
+}
+
+.logo {
+  font-size: 18px;
+}
