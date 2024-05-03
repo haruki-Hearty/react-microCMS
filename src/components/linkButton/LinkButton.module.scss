@@ -1,4 +1,4 @@
-@use 'global' as *;
+@use '../../styles/global/' as *;
 
 .link {
   position: relative;
@@ -24,5 +24,5 @@
   transform: translateY(-50%);
   width: 15px;
   height: 6px;
-  background: url(../assets/arrow.svg)no-repeat center;
+  background: url(../../assets/arrow.svg)no-repeat center;
 }

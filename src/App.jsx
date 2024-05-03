@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { client } from "./lib/microcms/client";
-import { LinkButton } from "./components/LinkButton";
+import { LinkButton } from "./components/linkButton/LinkButton";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blog from "./Blog";
 import Home from "./Home";
-import { Header } from "./components/Header";
+import { Header } from "./components/header/Header";
 
 function App() {
   const [titles, setTitles] = useState([]);

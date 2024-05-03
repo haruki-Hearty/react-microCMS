@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../styles/Nav.module.scss";
+import styles from "./Nav.module.scss";
 import { Link } from "react-router-dom";
 
 export const Nav = () => {
