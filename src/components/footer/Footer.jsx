@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.content}>
       <Link to="/">Hearty plus</Link>
+      
     </footer>
   )
 }
