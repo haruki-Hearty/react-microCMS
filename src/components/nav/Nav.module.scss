@@ -1,8 +1,10 @@
+@use '../../styles/global/' as *;
+
 .lists {
   display: flex;
   align-items: center;
   gap: 1.25em;
-  @media (max-width: 768px) {
+  @include mq() {
     position: fixed;
     inset: 0 -100% 0 100%;
     background: rgba(255, 255, 255, 0.8);
@@ -39,7 +41,7 @@
 
 .menuButton {
   display: none;
-  @media (max-width: 768px) {
+  @include mq() {
     all: unset;
     outline: revert;
     -webkit-tap-highlight-color: transparent;
@@ -83,7 +85,7 @@
 }
 
 .close .menuButton {
-  @media (max-width: 768px) {
+  @include mq() {
     color: #333;
   }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Reset } from 'styled-reset'
-import './index.scss';
 import './styles/style.scss';
 import App from './App';
 

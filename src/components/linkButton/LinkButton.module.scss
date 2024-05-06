@@ -1,3 +1,5 @@
+@use '../../styles/global/' as *;
+
 .link {
   position: relative;
   display: inline-block;
@@ -7,7 +9,7 @@
   text-align: center;
   text-decoration: none;
   color: #333;
-  @media screen and (max-width: 768px) {
+  @include mq() {
     font-size: 14px;
     padding: 10px 30px;
     min-width: 130px;
@@ -22,5 +24,5 @@
   transform: translateY(-50%);
   width: 15px;
   height: 6px;
-  background: url(../assets/arrow.svg)no-repeat center;
+  background: url(../../assets/arrow.svg)no-repeat center;
 }

@@ -1,3 +1,5 @@
+@use '../../styles/global/' as *;
+
 .header {
   height: 50px;
 }
@@ -9,7 +11,7 @@
   padding-inline: 25px;
   margin-inline: auto;
   height: inherit;
-  @media (max-width: 768px) {
+  @include mq() {
     padding-left: 16px;
     padding-right: 0;
   }
