@@ -9,11 +9,11 @@ export const Footer = () => {
       icon: <GithubIconSvg />,
     },
     {
-      url: "https://github.com/haruki-Hearty",
+      url: "https://www.instagram.com/",
       icon: <InstaIconSvg />,
     },
     {
-      url: "https://github.com/haruki-Hearty",
+      url: "https://twitter.com/home",
       icon: <XIconSvg />,
     },
   ];
@@ -33,21 +33,6 @@ export const Footer = () => {
               </li>
             );
           })}
-          {/* <li className={styles.list}>
-            <Link to="https://github.com/haruki-Hearty" target="_blank">
-              <GithubIconSvg />
-            </Link>
-          </li>
-          <li className={styles.list}>
-            <Link to="https://www.instagram.com/" target="_blank">
-              <InstaIconSvg />
-            </Link>
-          </li>
-          <li className={styles.list}>
-            <Link to="https://twitter.com/home" target="_blank">
-              <XIconSvg />
-            </Link>
-          </li> */}
         </ul>
       </div>
       <div className={styles.copyright}>
