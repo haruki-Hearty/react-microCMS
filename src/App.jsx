@@ -4,8 +4,7 @@ import { LinkButton } from "./components/linkButton/LinkButton";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blog from "./Blog";
 import Home from "./Home";
-import { Header } from "./components/header/Header";
-import { Footer } from "./components/footer/Footer";
+import { Layout } from "./components/Layout";
 
 function App() {
   const [titles, setTitles] = useState([]);
@@ -31,22 +30,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
-
-        {/* 記事の取得　別のコンポーネントで考えた方がいい？ */}
-        <ul>
-          {titles.map((title, index) => (
-            <li key={index}>{title}</li> // タイトルを表示
-          ))}
-        </ul>
-        <LinkButton title="ブログ一覧へ" link="/blog" />
-        <LinkButton title="ホームへ" link="/" />
-        <Footer />
-        {/* ルートとコンポーネントのマッピング */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
+        <Layout>
+          <ul>
+            {titles.map((title, index) => (
+              <li key={index}>{title}</li> // タイトルを表示
+            ))}
+          </ul>
+          <LinkButton title="ブログ一覧へ" link="/blog" />
+          <LinkButton title="ホームへ" link="/" />
+          {/* ルートとコンポーネントのマッピング */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+          </Routes>
+        </Layout>
       </div>
     </BrowserRouter>
   );
