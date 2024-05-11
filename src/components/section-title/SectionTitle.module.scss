@@ -1,0 +1,30 @@
+@use '../../styles/global/' as *;
+
+.title {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 1em;
+  font-size: 20px;
+  text-align: center;
+  @include mq() {
+    font-size: 16px;
+  }
+  &::before {
+    content: attr(datatitle);
+    font-size: 32px;
+    @include mq() {
+      font-size: 24px;
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 80px;
+    background: #333;
+    @include mq() {
+      width: 40px;
+    }
+  }
+}
