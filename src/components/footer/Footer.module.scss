@@ -1,0 +1,32 @@
+@use '../../styles/global/' as *;
+
+.body {
+  background: #f9f9f9;
+}
+
+.logo {
+  display: inline-block;
+  padding: 10px;
+  font-size: 30px;
+  @include mq() {
+    font-size: 24px;
+  }
+}
+
+.inner {
+  padding-block: 88px;
+  text-align: center;
+}
+
+.lists {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
+}
+
+.copyright {
+  padding-block: 17px;
+  background: #d9d9d9;
+  text-align: center;
+}
