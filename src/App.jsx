@@ -29,22 +29,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <Layout>
-          <ul>
-            {titles.map((title, index) => (
-              <li key={index}>{title}</li> // タイトルを表示
-            ))}
-          </ul>
-          <LinkButton title="ブログ一覧へ" link="/blog" />
-          <LinkButton title="ホームへ" link="/" />
-          {/* ルートとコンポーネントのマッピング */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<Blog />} />
-          </Routes>
-        </Layout>
-      </div>
+      <Layout>
+        <ul>
+          {titles.map((title, index) => (
+            <li key={index}>{title}</li> // タイトルを表示
+          ))}
+        </ul>
+        <LinkButton title="ブログ一覧へ" link="/blog" />
+        <LinkButton title="ホームへ" link="/" />
+        {/* ルートとコンポーネントのマッピング */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }
