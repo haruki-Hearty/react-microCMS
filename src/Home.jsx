@@ -1,4 +1,4 @@
-import { SectionTitle } from "./components/section-title/SectionTitle";
+import { SectionTitle } from "./components/sectionTitle/SectionTitle";
 
 const Home = () => {
   return (
