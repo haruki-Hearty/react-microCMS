@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { client } from "./lib/microcms/client";
 import { LinkButton } from "./components/linkButton/LinkButton";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Blog from "./Blog";
-import Home from "./Home";
+import Blog from "./pages/Blog";
+import Home from "./pages/Home";
 import { Layout } from "./components/Layout";
 
 function App() {
