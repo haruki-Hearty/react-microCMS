@@ -7,39 +7,34 @@ import Home from "./pages/Home";
 import { Layout } from "./components/Layout";
 
 function App() {
-  const [titles, setTitles] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     //async キーワードは、関数を非同期関数にするために使用されます
-    const fetchBlog = async () => {
+    const fetchData = async () => {
       try {
         // await キーワードを使用して非同期処理の完了を待ちます。非同期関数は、必ず Promise を返します。
         const response = await client.get({
           endpoint: "blog", // 記事のエンドポイントを指定
         });
-        const blogTitles = response.contents.map((blog) => blog.title); // 記事のタイトルを取得
-        setTitles(blogTitles);
+        // response.contentsはMicroCMSから受け取ったデータの配列であり、これを状態にセットすることでReactコンポーネント内でそのデータを使用できるようになります。
+        setData(response.contents)
       } catch (error) {
         console.error("Error fetching titles:", error);
       }
     };
-
-    fetchBlog();
+    fetchData();
   }, []);
-
+  console.log(data)
   return (
     <BrowserRouter>
       <Layout>
-        <ul>
-          {titles.map((title, index) => (
-            <li key={index}>{title}</li> // タイトルを表示
-          ))}
-        </ul>
+        
         <LinkButton title="ブログ一覧へ" link="/blog" />
         <LinkButton title="ホームへ" link="/" />
         {/* ルートとコンポーネントのマッピング */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home data={data} />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </Layout>
