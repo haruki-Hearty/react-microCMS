@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import { Layout } from "./components/Layout";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     //async キーワードは、関数を非同期関数にするために使用されます
@@ -18,14 +18,14 @@ function App() {
           endpoint: "blog", // 記事のエンドポイントを指定
         });
         // response.contentsはMicroCMSから受け取ったデータの配列であり、これを状態にセットすることでReactコンポーネント内でそのデータを使用できるようになります。
-        setData(response.contents)
+        setPosts(response.contents)
       } catch (error) {
         console.error("Error fetching titles:", error);
       }
     };
     fetchData();
   }, []);
-  console.log(data)
+  console.log(posts)
   return (
     <BrowserRouter>
       <Layout>
@@ -34,7 +34,7 @@ function App() {
         <LinkButton title="ホームへ" link="/" />
         {/* ルートとコンポーネントのマッピング */}
         <Routes>
-          <Route path="/" element={<Home data={data} />} />
+          <Route path="/" element={<Home posts={posts} />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </Layout>
