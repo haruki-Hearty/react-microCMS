@@ -1,10 +1,6 @@
-import parse from 'html-react-parser'
+import parse from "html-react-parser";
 
 export const ConvertText = (props) => {
-  const {contentHTML} = props;
-  return (
-    <>
-    {parse(contentHTML)}
-    </>
-  )
-}
+  const { contentHTML } = props;
+  return <>{parse(contentHTML)}</>;
+};

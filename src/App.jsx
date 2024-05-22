@@ -18,18 +18,16 @@ function App() {
           endpoint: "blog", // 記事のエンドポイントを指定
         });
         // response.contentsはMicroCMSから受け取ったデータの配列であり、これを状態にセットすることでReactコンポーネント内でそのデータを使用できるようになります。
-        setPosts(response.contents)
+        setPosts(response.contents);
       } catch (error) {
         console.error("Error fetching titles:", error);
       }
     };
     fetchData();
   }, []);
-  console.log(posts)
   return (
     <BrowserRouter>
       <Layout>
-        
         <LinkButton title="ブログ一覧へ" link="/blog" />
         <LinkButton title="ホームへ" link="/" />
         {/* ルートとコンポーネントのマッピング */}
