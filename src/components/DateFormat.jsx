@@ -1,9 +1,10 @@
 import { format } from "@formkit/tempo";
 
-export const DateFormat = (date) => {
+export const DateFormat = (props) => {
+  const {date} = props;
   return (
-    <p>
+    <>
       {format(date, "YYYY.MM.DD")}
-    </p>
+    </>
   )
 };
