@@ -1,7 +1,34 @@
-@use '../../styles/global/' as *;
+@use "../../styles/global/" as *;
+
+.lists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  // gapを使うと中身の高さが崩れる 質問してみる
+  // gap: 50px;
+  // marginを使用してみる
+  column-gap: 50px;
+  margin-bottom: -50px;
+}
+
+.list {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  row-gap: 13px;
+  margin-bottom: 50px;
+}
 
 .img {
-  width: 250px;
-  height: 150px;
+  display: block;
+  width: 100%;
+  height: 160px;
   object-fit: cover;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.title {
+  font-size: 18px;
 }

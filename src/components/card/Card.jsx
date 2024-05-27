@@ -1,18 +1,24 @@
-import { ConvertText } from "../ConvertText";
-import { DateFormat } from "../DateFormat";
 import styles from "./Card.module.scss";
+import { formatYYYYMMDD } from "../../lib/dateFormatter";
 
 export const Card = (props) => {
   const { posts } = props;
   return (
-    <ul>
+    <ul className={styles.lists}>
       {posts.map((post) => (
-        <li key={post.id}>
+        <li className={styles.list} key={post.id}>
           <img className={styles.img} src={post.thumbnail.url} alt="" />
-          <p>{<DateFormat date={post.publishedAt} />}</p>
-          <h3>{post.title}</h3>
-          {<ConvertText contentHTML={post.content} />}
-          <p>{post.category.map((post) => post.name)}</p>
+          <p className={styles.date}>{formatYYYYMMDD(post.publishedAt)}</p>
+          <h3 className={styles.title}>{post.title}</h3>
+          <div
+            className={styles.content}
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          ></div>
+          <div className={styles.category}>
+            {post.category.map((post) => {
+              return <span className={styles.categoryItem}>{post.name}</span>;
+            })}
+          </div>
         </li>
       ))}
     </ul>
