@@ -1,7 +1,7 @@
 import styles from "./Card.module.scss";
 import { formatYYYYMMDD } from "../../lib/dateFormatter";
 
-export const Card = (props) => {
+export const BlogCard = (props) => {
   const { posts } = props;
   return (
     <ul className={styles.lists}>
@@ -16,7 +16,7 @@ export const Card = (props) => {
           ></div>
           <div className={styles.category}>
             {post.category.map((post) => {
-              return <span className={styles.categoryItem}>{post.name}</span>;
+              return <span key={post.id} className={styles.categoryItem}>{post.name}</span>;
             })}
           </div>
         </li>

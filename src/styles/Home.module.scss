@@ -1,0 +1,11 @@
+@use 'global'as *;
+
+.cardInner {
+  max-width: 1000px;
+  width: 90%;
+  margin-inline: auto;
+  @include mq() {
+    max-width: 300px;
+    width: 80%;
+  }
+}

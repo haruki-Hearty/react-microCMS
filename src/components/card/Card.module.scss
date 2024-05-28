@@ -2,12 +2,15 @@
 
 .lists {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   // gapを使うと中身の高さが崩れる 質問してみる
   // gap: 50px;
   // marginを使用してみる
-  column-gap: 50px;
+  column-gap: 40px;
   margin-bottom: -50px;
+  @include mq() {
+    grid-template-columns: 1fr;
+  }
 }
 
 .list {
@@ -31,4 +34,16 @@
 
 .title {
   font-size: 18px;
+}
+
+.category {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.categoryItem {
+  border: solid #333 1px;
+  padding: 7px 11px;
+  font-size: 12px;
 }
