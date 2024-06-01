@@ -8,7 +8,9 @@ import { Layout } from "./components/Layout";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [works, setWorks] = useState([]);
 
+  //ブログ用
   useEffect(() => {
     //async キーワードは、関数を非同期関数にするために使用されます
     const fetchData = async () => {
@@ -25,6 +27,25 @@ function App() {
     };
     fetchData();
   }, []);
+
+  //works用
+  useEffect(() => {
+    //async キーワードは、関数を非同期関数にするために使用されます
+    const fetchData = async () => {
+      try {
+        // await キーワードを使用して非同期処理の完了を待ちます。非同期関数は、必ず Promise を返します。
+        const response = await client.get({
+          endpoint: "works", // 記事のエンドポイントを指定
+        });
+        // response.contentsはMicroCMSから受け取ったデータの配列であり、これを状態にセットすることでReactコンポーネント内でそのデータを使用できるようになります。
+        setWorks(response.contents);
+      } catch (error) {
+        console.error("Error fetching titles:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  
   return (
     <BrowserRouter>
       <Layout>
@@ -32,7 +53,7 @@ function App() {
         <LinkButton title="ホームへ" link="/" />
         {/* ルートとコンポーネントのマッピング */}
         <Routes>
-          <Route path="/" element={<Home posts={posts} />} />
+          <Route path="/" element={<Home posts={posts} works={works} />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
       </Layout>

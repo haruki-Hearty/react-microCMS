@@ -2,7 +2,7 @@
 
 .lists {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
   // gapを使うと中身の高さが崩れる 質問してみる
   // gap: 50px;
   // marginを使用してみる
