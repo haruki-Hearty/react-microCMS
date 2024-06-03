@@ -9,3 +9,16 @@
     width: 80%;
   }
 }
+
+.Cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  // gapを使うと中身の高さが崩れる 質問してみる
+  // gap: 50px;
+  // marginを使用してみる
+  column-gap: 40px;
+  margin-bottom: -50px;
+  @include mq() {
+    grid-template-columns: 1fr;
+  }
+}
