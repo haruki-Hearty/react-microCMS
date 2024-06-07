@@ -1,6 +1,5 @@
 import styles from "./BlogCard.module.scss";
 import { formatYYYYMMDD } from "../../lib/dateFormatter";
-import { truncateText } from "../../lib/truncateText";
 
 export const BlogCard = (props) => {
   const { post } = props;
@@ -12,7 +11,7 @@ export const BlogCard = (props) => {
       <h3 className={styles.title}>{post.title}</h3>
       <div
         className={styles.content}
-        dangerouslySetInnerHTML={{ __html: truncateText(post.content, 40) }}
+        dangerouslySetInnerHTML={{ __html: post.content }}
       ></div>
       <div className={styles.category}>
         {post.category.map((post) => {
