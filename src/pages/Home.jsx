@@ -2,9 +2,12 @@ import { BlogCard } from "../components/card/BlogCard";
 import { WorkCard } from "../components/card/WorkCard";
 import { SectionTitle } from "../components/sectionTitle/SectionTitle";
 import styles from "../styles/Home.module.scss";
+import { usePosts } from "../lib/postContext";
 
 const Home = (props) => {
-  const { posts, works } = props;
+  //usePostsフックを使用して、postsとworksをコンテキストから取得。
+  const { posts, works } = usePosts();
+  // const { posts, works } = props;
   const latestBlog = [...posts].slice(0, 3);
   const latestWorks = [...works].slice(0, 3);
 
