@@ -37,6 +37,7 @@ function App() {
         // await キーワードを使用して非同期処理の完了を待ちます。非同期関数は、必ず Promise を返します。
         const response = await client.get({
           endpoint: "works", // 記事のエンドポイントを指定
+          queries: { orders: "-publishedAt" },
         });
         // response.contentsはMicroCMSから受け取ったデータの配列であり、これを状態にセットすることでReactコンポーネント内でそのデータを使用できるようになります。
         setWorks(response.contents);
