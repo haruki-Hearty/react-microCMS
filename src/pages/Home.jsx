@@ -18,12 +18,12 @@ const Home = (props) => {
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
           {latestBlog.map((post) => (
-            <BlogCard post={post} />
+            <BlogCard key={post.id} post={post} />
           ))}
         </ul>
         <ul className={styles.Cards}>
           {latestWorks.map((work) => (
-            <WorkCard work={work} />
+            <WorkCard key={work.id} work={work} />
           ))}
         </ul>
       </div>
