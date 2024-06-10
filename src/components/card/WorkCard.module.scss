@@ -1,31 +1,17 @@
 @use "../../styles/global/" as *;
 
-.lists {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
-  // gapを使うと中身の高さが崩れる 質問してみる
-  // gap: 50px;
-  // marginを使用してみる
-  column-gap: 40px;
-  margin-bottom: -50px;
-  @include mq() {
-    grid-template-columns: 1fr;
-  }
-}
-
 .list {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 5;
   row-gap: 13px;
-  margin-bottom: 50px;
 }
 
 .img {
   display: block;
   width: 100%;
-  height: 160px;
   object-fit: cover;
+  aspect-ratio: 16 / 9;
 }
 
 .date {

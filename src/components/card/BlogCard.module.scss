@@ -5,14 +5,13 @@
   grid-template-rows: subgrid;
   grid-row: span 5;
   row-gap: 13px;
-  margin-bottom: 50px;
 }
 
 .img {
   display: block;
   width: 100%;
-  height: 160px;
   object-fit: cover;
+  aspect-ratio: 16 / 9;
 }
 
 .date {
@@ -27,6 +26,7 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .categoryItem {
