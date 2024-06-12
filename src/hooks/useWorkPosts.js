@@ -7,7 +7,6 @@ export const WorkProvider = (props) => {
   const { children } = props;
   const [works, setWorks] = useState([]);
 
-  // works用データ取得
   useEffect(() => {
     const fetchData = async () => {
       try {

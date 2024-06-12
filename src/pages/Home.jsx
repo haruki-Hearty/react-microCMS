@@ -6,10 +6,8 @@ import { useWorkPosts } from "../hooks/useWorkPosts";
 import { useBlogPosts } from "../hooks/useBlogPosts";
 
 const Home = (props) => {
-  //usePostsフックを使用して、postsとworksをコンテキストから取得。
   const { works } = useWorkPosts();
   const { blogs } = useBlogPosts();
-  // const { posts, works } = props;
   const latestBlogs = [...blogs].slice(0, 3);
   const latestWorks = [...works].slice(0, 3);
 
