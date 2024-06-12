@@ -2,13 +2,15 @@ import { BlogCard } from "../components/card/BlogCard";
 import { WorkCard } from "../components/card/WorkCard";
 import { SectionTitle } from "../components/sectionTitle/SectionTitle";
 import styles from "../styles/Home.module.scss";
-import { usePosts } from "../lib/postContext";
+import { useWorkPosts } from "../hooks/useWorkPosts";
+import { useBlogPosts } from "../hooks/useBlogPosts";
 
 const Home = (props) => {
   //usePostsフックを使用して、postsとworksをコンテキストから取得。
-  const { posts, works } = usePosts();
+  const { works } = useWorkPosts();
+  const { blogs } = useBlogPosts();
   // const { posts, works } = props;
-  const latestBlog = [...posts].slice(0, 3);
+  const latestBlogs = [...blogs].slice(0, 3);
   const latestWorks = [...works].slice(0, 3);
 
   return (
@@ -17,7 +19,7 @@ const Home = (props) => {
       <SectionTitle japanese="紹介" english="ABOUT" />
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
-          {latestBlog.map((post) => (
+          {latestBlogs.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
         </ul>
