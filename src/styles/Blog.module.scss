@@ -20,5 +20,6 @@
   row-gap: 40px;
   @include mq() {
     grid-template-columns: 1fr;
+    row-gap: 20px;
   }
 }
