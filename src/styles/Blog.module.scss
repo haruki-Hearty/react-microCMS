@@ -1,0 +1,24 @@
+@use 'global'as *;
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  max-width: 1000px;
+  padding: 0 25px;
+  margin: 0 auto;
+  @include mq() {
+    max-width: 400px;
+    padding: 0 15px;
+  }
+}
+
+.Cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  column-gap: 4%;
+  row-gap: 40px;
+  @include mq() {
+    grid-template-columns: 1fr;
+  }
+}
