@@ -6,6 +6,7 @@ const BlogPostsContext = createContext();
 export const BlogProvider = (props) => {
   const { children } = props;
   const [blogs, setBlogs] = useState([]);
+  const latestBlogs = [...blogs].slice(0, 3);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +24,7 @@ export const BlogProvider = (props) => {
   }, []);
 
   return (
-    <BlogPostsContext.Provider value={{ blogs }}>
+    <BlogPostsContext.Provider value={{ blogs, latestBlogs }}>
       {children}
     </BlogPostsContext.Provider>
   );

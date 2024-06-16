@@ -6,7 +6,7 @@ const WorkPostsContext = createContext();
 export const WorkProvider = (props) => {
   const { children } = props;
   const [works, setWorks] = useState([]);
-
+  const latestWorks = [...works].slice(0, 3);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,7 +23,7 @@ export const WorkProvider = (props) => {
   }, []);
 
   return (
-    <WorkPostsContext.Provider value={{ works }}>
+    <WorkPostsContext.Provider value={{ works, latestWorks }}>
       {children}
     </WorkPostsContext.Provider>
   );
