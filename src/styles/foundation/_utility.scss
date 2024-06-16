@@ -1,0 +1,14 @@
+@use '../global'as *;
+
+.pc-only {
+  @include mq() {
+    display: none;
+  }
+}
+
+.sp-only {
+  display: none;
+  @include mq() {
+    display: unset;
+  }
+}
