@@ -1,4 +1,3 @@
-import { LinkButton } from "./components/linkButton/LinkButton";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
@@ -12,9 +11,6 @@ function App() {
       <BlogProvider>
         <WorkProvider>
           <Layout>
-            <LinkButton title="ブログ一覧へ" link="/blog" />
-            <LinkButton title="ホームへ" link="/" />
-            {/* ルートとコンポーネントのマッピング */}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<Blog />} />
