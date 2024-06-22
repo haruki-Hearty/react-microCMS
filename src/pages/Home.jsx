@@ -13,7 +13,7 @@ const Home = (props) => {
 
   return (
     <>
-      <KeyVisual title="心を込めた誠実な対応で、<br>理想のウェブサイトを実現します。" img="./worksKeyVisual.jpg" top />
+      <KeyVisual title="心を込めた誠実な対応で、<br>理想のウェブサイトを実現します。" img="./KeyVisual.jpg" top />
       <SectionTitle japanese="紹介" english="ABOUT" />
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
