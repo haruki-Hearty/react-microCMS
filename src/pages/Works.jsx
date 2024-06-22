@@ -12,8 +12,8 @@ const Works = () => {
       <h2>制作実績一覧</h2>
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
-          {works.map((post) => (
-            <WorkCard key={post.id} post={post} />
+          {works.map((work) => (
+            <WorkCard key={work.id} work={work} />
           ))}
         </ul>
       </div>
