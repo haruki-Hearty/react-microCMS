@@ -8,7 +8,7 @@ const Blog = () => {
 
   return (
     <>
-      <KeyVisual title="BLOG" subTitle="sub" img="./blogKeyVisual.jpg" />
+      <KeyVisual title="BLOG" subTitle="sub" img="./blog_keyvisual.jpg" />
       <h2>ブログ一覧</h2>
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>

@@ -8,7 +8,7 @@ const Works = () => {
 
   return (
     <>
-      <KeyVisual title="WORKS" subTitle="sub" img="./worksKeyVisual.jpg" />
+      <KeyVisual title="WORKS" subTitle="sub" img="./works_keyvisual.jpg" />
       <h2>制作実績一覧</h2>
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
