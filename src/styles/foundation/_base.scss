@@ -1,6 +1,10 @@
 //reset.cssで足りなかったリセットを追加
 //基本の文字サイズやフォントファミリーなどの追加
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   color: inherit;
   text-decoration: none;
