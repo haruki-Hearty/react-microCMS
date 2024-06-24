@@ -4,7 +4,7 @@ import { SectionTitle } from "../components/sectionTitle/SectionTitle";
 import styles from "../styles/Home.module.scss";
 import { useWorkPosts } from "../hooks/useWorkPosts";
 import { useBlogPosts } from "../hooks/useBlogPosts";
-import { KeyVisual } from "../components/KeyVisual/KeyVisual";
+import { TopKeyVisual } from "../components/KeyVisual/TopKeyVisual";
 
 
 const Home = (props) => {
@@ -13,7 +13,7 @@ const Home = (props) => {
 
   return (
     <>
-      <KeyVisual title="心を込めた誠実な対応で、<br>理想のウェブサイトを実現します。" img="./KeyVisual.jpg" top />
+      <TopKeyVisual title="心を込めた誠実な対応で、<br>理想のウェブサイトを実現します。" img="./KeyVisual.jpg" />
       <SectionTitle japanese="紹介" english="ABOUT" />
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
