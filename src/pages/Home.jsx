@@ -4,6 +4,8 @@ import { SectionTitle } from "../components/sectionTitle/SectionTitle";
 import styles from "../styles/Home.module.scss";
 import { useWorkPosts } from "../hooks/useWorkPosts";
 import { useBlogPosts } from "../hooks/useBlogPosts";
+import { TopKeyVisual } from "../components/KeyVisual/TopKeyVisual";
+
 
 const Home = (props) => {
   const { latestWorks } = useWorkPosts();
@@ -11,7 +13,7 @@ const Home = (props) => {
 
   return (
     <>
-      <h2>ホーム</h2>
+      <TopKeyVisual />
       <SectionTitle japanese="紹介" english="ABOUT" />
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
