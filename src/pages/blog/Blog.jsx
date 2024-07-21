@@ -1,0 +1,28 @@
+import { useBlogPosts } from "../../hooks/useBlogPosts";
+import { BlogCard } from "../../components/card/BlogCard";
+import styles from "../../styles/Blog.module.scss";
+import { KeyVisual } from "../../components/KeyVisual/KeyVisual";
+import { Link } from "react-router-dom";
+
+const Blog = () => {
+  const { blogs } = useBlogPosts();
+  return (
+    <>
+      <KeyVisual title="BLOG" subTitle="sub" img="./blog_key_visual.jpg" />
+      <h2>ブログ一覧</h2>
+      <div className={styles.cardInner}>
+        <ul className={styles.Cards}>
+          {blogs.map((post) => (
+            <article>
+              <Link key={post.id} to={`/blog/${post.id}`}>
+                <BlogCard post={post} />
+              </Link>
+            </article>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export default Blog;

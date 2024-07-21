@@ -7,7 +7,6 @@ export const BlogProvider = (props) => {
   const { children } = props;
   const [blogs, setBlogs] = useState([]);
   const latestBlogs = [...blogs].slice(0, 3);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
