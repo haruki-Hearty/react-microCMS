@@ -1,0 +1,10 @@
+@use "../../styles/global/" as *;
+
+.title {
+  font-size: 28px;
+}
+
+.img {
+  aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
