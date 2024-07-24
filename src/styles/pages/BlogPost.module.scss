@@ -5,6 +5,47 @@
 }
 
 .img {
+  margin-top: 18px;
   aspect-ratio: 16 / 9;
     object-fit: cover;
+}
+
+.date {
+  font-size: 12px;
+  @include mq() {
+    width: 100%;
+  }
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 18px;
+  
+}
+
+.postBody {
+  margin-top: 60px;
+}
+
+.postBody h2 {
+  font-size: 26px;
+}
+
+.postBody h2 + p {
+  margin-top: 20px;
+}
+
+.postBody p {
+  line-height: 1.5;
+}
+
+.postBody p + h2 {
+  margin-top: 90px;
+}
+
+.postBody p + p {
+  margin-top: 1em;
 }
