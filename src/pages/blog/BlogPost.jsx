@@ -2,7 +2,7 @@ import { Container } from "../../components/container/Container";
 import { useBlogPosts } from "../../hooks/useBlogPosts";
 import { useParams } from "react-router-dom";
 import { formatYYYYMMDD } from "../../lib/dateFormatter";
-import styles from "../../styles/pages/BlogPost.module.scss";
+import styles from "./BlogPost.module.scss";
 import { Category } from "../../components/category/Category";
 const BlogPost = () => {
   const { blogs, error } = useBlogPosts();

@@ -1,6 +1,6 @@
 import { useBlogPosts } from "../../hooks/useBlogPosts";
 import { BlogCard } from "../../components/card/BlogCard";
-import styles from "../../styles/Blog.module.scss";
+import styles from "./Blog.module.scss";
 import { KeyVisual } from "../../components/KeyVisual/KeyVisual";
 import { Link } from "react-router-dom";
 
@@ -12,9 +12,13 @@ const Blog = () => {
       <h2>ブログ一覧</h2>
       <div className={styles.cardInner}>
         <ul className={styles.Cards}>
-          {blogs.map((post) => (
-            <BlogCard post={post} />
-          ))}
+          <li>
+            <Link>
+              {blogs.map((post) => (
+                <BlogCard post={post} />
+              ))}
+            </Link>
+          </li>
         </ul>
       </div>
     </>
