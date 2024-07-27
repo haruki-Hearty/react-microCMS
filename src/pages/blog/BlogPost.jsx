@@ -8,7 +8,6 @@ const BlogPost = () => {
   const { blogs, error } = useBlogPosts();
   const { id } = useParams();
   const post = blogs.find((post) => post.id === id);
-  console.log(blogs);
   if (error) {
     return <div>Error: {error.message}</div>;
   }
