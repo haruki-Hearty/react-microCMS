@@ -11,14 +11,14 @@ const Blog = () => {
       <KeyVisual title="BLOG" subTitle="sub" img="./blog_key_visual.jpg" />
       <h2>ブログ一覧</h2>
       <div className={styles.cardInner}>
-        <ul className={styles.Cards}>
-          <li>
-            <Link>
-              {blogs.map((post) => (
+        <ul className={styles.cards}>
+          {blogs.map((post) => (
+            <li className={styles.card}>
+              <Link to={`/blog/${post.id}`} className={styles.link}>
                 <BlogCard post={post} />
-              ))}
-            </Link>
-          </li>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </>
