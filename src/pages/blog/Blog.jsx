@@ -13,7 +13,7 @@ const Blog = () => {
       <div className={styles.cardInner}>
         <ul className={styles.cards}>
           {blogs.map((post) => (
-            <li className={styles.card}>
+            <li key={post.id} className={styles.card}>
               <Link to={`/blog/${post.id}`} className={styles.link}>
                 <BlogCard post={post} />
               </Link>
