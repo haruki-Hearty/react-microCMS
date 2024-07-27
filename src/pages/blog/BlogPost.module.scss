@@ -28,24 +28,19 @@
 
 .postBody {
   margin-top: 60px;
-}
-
-.postBody h2 {
-  font-size: 26px;
-}
-
-.postBody h2 + p {
-  margin-top: 20px;
-}
-
-.postBody p {
-  line-height: 1.5;
-}
-
-.postBody p + h2 {
-  margin-top: 90px;
-}
-
-.postBody p + p {
-  margin-top: 1em;
+  & h2 {
+    font-size: 26px;
+    & + p {
+      margin-top: 20px;
+    }
+  }
+  & p {
+    line-height: 1.5;
+    & + h2 {
+      margin-top: 90px;
+    }
+    & + p {
+      margin-top: 1em;
+    }
+  }
 }
