@@ -6,6 +6,7 @@ const BlogPostsContext = createContext();
 export const BlogProvider = (props) => {
   const { children } = props;
   const [blogs, setBlogs] = useState([]);
+  const [error, setError] = useState();
   const latestBlogs = [...blogs].slice(0, 3);
   useEffect(() => {
     const fetchData = async () => {
@@ -14,8 +15,13 @@ export const BlogProvider = (props) => {
           endpoint: "blog",
           queries: { orders: "-publishedAt" },
         });
-        setBlogs(response.contents);
+        if (response.contents.length > 0) {
+          setBlogs(response.contents);
+        } else {
+          setError("記事が見つかりませんでした");
+        }
       } catch (error) {
+        setError("記事の取得中にエラーが発生しました");
         console.error("Error fetching blog posts:", error);
       }
     };
@@ -23,7 +29,7 @@ export const BlogProvider = (props) => {
   }, []);
 
   return (
-    <BlogPostsContext.Provider value={{ blogs, latestBlogs }}>
+    <BlogPostsContext.Provider value={{ blogs, latestBlogs, error }}>
       {children}
     </BlogPostsContext.Provider>
   );

@@ -6,13 +6,10 @@ import styles from "./BlogPost.module.scss";
 import { Category } from "../../components/category/Category";
 const BlogPost = () => {
   const { post, error } = useBlogPost();
-  console.log(post);
   return (
     <>
       {error ? (
         <div>{error}</div>
-      ) : !post ? (
-        <div>記事を読み込み中...</div>
       ) : (
         <Container>
           <h1 className={styles.title}>{post.title}</h1>
