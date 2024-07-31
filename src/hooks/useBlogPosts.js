@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { client } from "../lib/microcms/client";
 
 const BlogPostsContext = createContext();
-
+//記事を全権取得
 export const BlogProvider = (props) => {
   const { children } = props;
   const [blogs, setBlogs] = useState([]);
