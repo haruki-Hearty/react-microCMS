@@ -4,9 +4,8 @@ import { client } from "../lib/microcms/client";
 //idが一致する詳細ページのデータのみとってくる
 export const useBlogPost = () => {
   const { id } = useParams();//URLからidを取得
-  const [post, setPost] = useState();
-  const [error, setError] = useState();
-
+  const [post, setPost] = useState(null);
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetchPost = async () => {
       try {
