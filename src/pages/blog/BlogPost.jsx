@@ -7,28 +7,30 @@ const BlogPost = () => {
   const { post, error } = useBlogPost();
   return (
     <>
-      {error ? (
-        <div>{error}</div>
-      ) : !post ? (
-        <div>記事を読み込み中...</div>
-      ) : (
-        <Container>
-          <h1 className={styles.title}>{post.title}</h1>
-          <div className={styles.category}>
-            <span className={styles.date}>
-              {formatYYYYMMDD(post.publishedAt)}
-            </span>
-            {post.category.map((post) => {
-              return <Category key={post.id} name={post.name} />;
-            })}
+      <Container>
+        {error ? (
+          <div>{error}</div>
+        ) : !post ? (
+          <div>記事を読み込み中...</div>
+        ) : (
+          <div>
+            <h1 className={styles.title}>{post.title}</h1>
+            <div className={styles.category}>
+              <span className={styles.date}>
+                {formatYYYYMMDD(post.publishedAt)}
+              </span>
+              {post.category.map((post) => {
+                return <Category key={post.id} name={post.name} />;
+              })}
+            </div>
+            <img className={styles.img} src={post.thumbnail.url} alt="" />
+            <div
+              className={styles.postBody}
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            ></div>
           </div>
-          <img className={styles.img} src={post.thumbnail.url} alt="" />
-          <div
-            className={styles.postBody}
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          ></div>
-        </Container>
-      )}
+        )}
+      </Container>
     </>
   );
 };
