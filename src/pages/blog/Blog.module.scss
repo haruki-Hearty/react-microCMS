@@ -1,4 +1,4 @@
-@use "global" as *;
+@use "../../styles/global/" as *;
 
 .cardInner {
   display: flex;
@@ -13,7 +13,7 @@
   }
 }
 
-.Cards {
+.cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   column-gap: 4%;
@@ -22,4 +22,16 @@
     grid-template-columns: 1fr;
     row-gap: 20px;
   }
+}
+
+.card {
+  display: contents;
+}
+
+
+.link {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  row-gap: 13px;
 }

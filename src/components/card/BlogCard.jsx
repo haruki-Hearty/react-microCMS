@@ -5,7 +5,7 @@ export const BlogCard = (props) => {
   const { post } = props;
 
   return (
-    <li className={styles.list} key={post.id}>
+    <>
       <img className={styles.img} src={post.thumbnail.url} alt="" />
       <p className={styles.date}>{formatYYYYMMDD(post.publishedAt)}</p>
       <h3 className={styles.title}>{post.title}</h3>
@@ -22,6 +22,6 @@ export const BlogCard = (props) => {
           );
         })}
       </div>
-    </li>
+    </>
   );
 };
