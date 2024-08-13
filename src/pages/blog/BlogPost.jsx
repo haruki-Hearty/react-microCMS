@@ -27,7 +27,6 @@ const BlogPost = () => {
           <div>記事を読み込み中...</div>
         ) : (
           <div>
-            {}
             <h1 className={styles.title}>{post.title}</h1>
             <div className={styles.category}>
               <span className={styles.date}>
