@@ -3,23 +3,31 @@ import { useBlogPost } from "../../hooks/useBlogPost";
 import { formatYYYYMMDD } from "../../lib/dateFormatter";
 import styles from "./BlogPost.module.scss";
 import { Category } from "../../components/category/Category";
-import { useLocation } from 'react-router-dom';
 import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
+// import { useLocation } from 'react-router-dom';
 
 const BlogPost = () => {
-  const location = useLocation();
-  console.log(location)
   const { post, error } = useBlogPost();
+  const pathNames = [
+    {
+      title: "ブログ",
+      to: "/blog"
+    },
+    post ? {
+      title: post.title,
+    } : "",
+  ]
   return (
     <>
       <Container>
-      <Breadcrumb />
+      <Breadcrumb pathNames={pathNames} />
         {error ? (
           <div>{error}</div>
         ) : !post ? (
           <div>記事を読み込み中...</div>
         ) : (
           <div>
+            {}
             <h1 className={styles.title}>{post.title}</h1>
             <div className={styles.category}>
               <span className={styles.date}>

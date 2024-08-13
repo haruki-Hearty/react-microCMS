@@ -8,12 +8,16 @@ import { Container } from "../../components/container/Container";
 
 const Blog = () => {
   const { blogs, error } = useBlogPosts();
-  console.log(blogs)
+  const pathNames = [
+    {
+      title: "ブログ",
+    },
+  ]
   return (
     <>
       <KeyVisual title="BLOG" subTitle="sub" img="./blog_key_visual.jpg" />
       <Container large>
-        <Breadcrumb />
+        <Breadcrumb pathNames={pathNames} />
         <h2>ブログ一覧</h2>
         <div className={styles.cardInner}>
           {error ? (

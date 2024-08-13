@@ -1,19 +1,24 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import homeIcon from "../../assets/icon-home.svg"
+import styles from "./Breadcrumb.module.scss";
 
-export const Breadcrumb = () => {
-  const location = useLocation();
-  const pathNames = location.pathname.split("/").filter((x) => x);
-  console.log(pathNames);
+export const Breadcrumb = (props) => {
+  const { pathNames } = props;
   return (
-    <ul>
-      <li>
-        <Link to="/">ホーム</Link>
+    <ul className={styles.lists}>
+      <li className={styles.list}>
+        <Link to="/"><img className={styles.homeIcon} src={homeIcon} alt="" /></Link>
       </li>
-      {pathNames.map((value, index) => {
-        const to = `/${pathNames.slice(0, index + 1).join('/')}`;
+      {pathNames.map((path,index) => {
         return (
-          <li key={index}>
-            <Link to={to}>{value}</Link>
+          <li className={styles.list} key={index}>
+            {path.to ? (
+              <Link className={styles.link} to={path.to}>{path.title}</Link>
+            ) : (
+              <span>
+                {path.title}
+              </span>
+            )}
           </li>
         );
       })}
