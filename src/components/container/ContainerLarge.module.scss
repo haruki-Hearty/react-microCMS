@@ -1,7 +1,7 @@
 @use "../../styles/global/" as *;
 
-.default {
-  max-width: $max-width;
+.large {
+  max-width: $max-width-lage;
   padding: 0 20px;
   margin: 0 auto;
 }

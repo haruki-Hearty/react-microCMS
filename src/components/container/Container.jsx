@@ -1,9 +1,9 @@
 import styles from './Container.module.scss'
 
 export const Container = (props) => {
-  const { children, large = false } = props;
+  const { children } = props;
   return (
-    <div className={large ? styles.large : styles.default}>
+    <div className={styles.default}>
       { children }
     </div>
   )
