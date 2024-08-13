@@ -4,7 +4,6 @@ import { formatYYYYMMDD } from "../../lib/dateFormatter";
 import styles from "./BlogPost.module.scss";
 import { Category } from "../../components/category/Category";
 import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
-// import { useLocation } from 'react-router-dom';
 
 const BlogPost = () => {
   const { post, error } = useBlogPost();
