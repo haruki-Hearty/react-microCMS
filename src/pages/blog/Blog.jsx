@@ -4,7 +4,7 @@ import styles from "./Blog.module.scss";
 import { KeyVisual } from "../../components/KeyVisual/KeyVisual";
 import { Link } from "react-router-dom";
 import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
-import { Container } from "../../components/container/Container";
+import { ContainerLarge } from "../../components/container/ContainerLarge";
 
 const Blog = () => {
   const { blogs, error } = useBlogPosts();
@@ -16,7 +16,7 @@ const Blog = () => {
   return (
     <>
       <KeyVisual title="BLOG" subTitle="sub" img="./blog_key_visual.jpg" />
-      <Container large>
+      <ContainerLarge>
         <Breadcrumb pathNames={pathNames} />
         <h2>ブログ一覧</h2>
         <div className={styles.cardInner}>
@@ -34,7 +34,7 @@ const Blog = () => {
             </ul>
           )}
         </div>
-      </Container>
+      </ContainerLarge>
     </>
   );
 };
