@@ -3,11 +3,23 @@ import { useBlogPost } from "../../hooks/useBlogPost";
 import { formatYYYYMMDD } from "../../lib/dateFormatter";
 import styles from "./BlogPost.module.scss";
 import { Category } from "../../components/category/Category";
+import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
+
 const BlogPost = () => {
   const { post, error } = useBlogPost();
+  const pathNames = [
+    {
+      title: "ブログ",
+      to: "/blog"
+    },
+    post ? {
+      title: post.title,
+    } : "",
+  ]
   return (
     <>
       <Container>
+      <Breadcrumb pathNames={pathNames} />
         {error ? (
           <div>{error}</div>
         ) : !post ? (
