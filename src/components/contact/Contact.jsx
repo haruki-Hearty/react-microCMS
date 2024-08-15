@@ -1,63 +1,39 @@
-import { useState } from "react";
+// src/App.js
+import React, { useRef } from 'react';
+import emailjs from 'emailjs-com';
 
 export const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  // フォームを参照するためのuseRefを定義
+  const form = useRef();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // フォームが送信されたときに呼び出される関数
+  const sendEmail = (e) => {
+    e.preventDefault(); // ページのリロードを防ぐ
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      alert('Your message has been sent!');
-    } else {
-      alert('There was an error sending your message.');
-    }
+    // EmailJSのsendFormメソッドを呼び出してメールを送信
+    emailjs.sendForm(
+      'service_02l84fg',     // EmailJSのサービスID
+      'template_2dcb1yu',    // EmailJSのテンプレートID
+      form.current, // フォームデータ（useRefで参照）
+      '0lb-7I23RaJQUn1YL'         // // EmailJSのPublic Key
+    ).then((result) => {
+      // メール送信に成功したときの処理
+        alert('メッセージは正常に送信されました。');
+      }, (error) => {
+         // メール送信に失敗したときの処理
+        alert('メッセージを送信できませんでした。もう一度お試しください。');
+      });
   };
 
   return (
     <div>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-        />
+      <form ref={form} onSubmit={sendEmail}>
+        <input type="text" name="user_name" placeholder="Your Name" required />
+        <input type="email" name="user_email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required />
         <button type="submit">Send Message</button>
       </form>
     </div>
-  )
+  );
 }
