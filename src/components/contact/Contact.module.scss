@@ -1,0 +1,69 @@
+.inner {
+  padding: 60px 0 100px;
+}
+.items {
+  margin-top: 50px;
+  padding: 20px;
+  background: #F3F3F3;
+}
+
+.label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
+}
+
+.input {
+  width: 100%;
+  margin-top: 16px;
+  & input {
+    width: inherit;
+    border: none;
+    padding: 12px;
+  }
+  & textarea {
+    border: none;
+    width: inherit;
+    padding: 12px;
+  }
+}
+
+.error {
+  color: red;
+}
+
+.required {
+  display: inline-block;
+  color: #ffffff;
+  background: #EE4747;
+  padding: 3px 10px;
+  font-size: 14px;
+}
+
+.button {
+  border-radius: 0;
+  position: relative;
+  display: block;
+  border: solid 1px #333;
+  padding:16px 40px;
+  min-width: 130px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  margin: 20px auto 0;
+  &::before {
+    content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 6px;
+  background: url(../../assets/arrow.svg)no-repeat center;
+  }
+}
