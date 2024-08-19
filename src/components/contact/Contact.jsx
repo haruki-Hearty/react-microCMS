@@ -8,21 +8,21 @@ import styles from "./Contact.module.scss";
 export const ContactForm = () => {
   // フォームを参照するためのuseRefを定義
   const form = useRef();
-  const [email, setEmail] = useState("");
-  const [confirmEmail, setConfirmEmail] = useState("");
   // エラーはまとめない
   const [error, setError] = useState("");
+  // バリデーション
   const [formValue, setFormValue] = useState({
     useName: "",
     furigana: "",
     email: "",
+    confirmEmail: "",
   });
 
   // フォームが送信されたときに呼び出される関数
   const sendEmail = (e) => {
     e.preventDefault(); // ページのリロードを防ぐ
 
-    if (email !== confirmEmail) {
+    if (formValue.email !== formValue.confirmEmail) {
       setError("メールアドレスが一致しません。ご確認ください。");
       return;
     }
@@ -112,8 +112,10 @@ export const ContactForm = () => {
                 type="email"
                 name="user_confirmEmail"
                 placeholder="メールアドレスを入力してください"
-                value={confirmEmail}
-                onChange={(e) => setConfirmEmail(e.target.value)}
+                value={formValue.confirmEmail}
+                onChange={(e) =>
+                  setFormValue((prev) => ({ ...prev, confirmEmail: e.target.value }))
+                }
                 required
               />
               {error && <p className={styles.error}>{error}</p>}
