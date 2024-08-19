@@ -7,7 +7,6 @@ import { useBlogPosts } from "../hooks/useBlogPosts";
 import { TopKeyVisual } from "../components/KeyVisual/TopKeyVisual";
 import { Contact } from "../components/contact/Contact";
 
-
 const Home = (props) => {
   const { latestWorks } = useWorkPosts();
   const { latestBlogs } = useBlogPosts();

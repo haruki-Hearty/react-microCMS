@@ -1,4 +1,3 @@
-// src/App.js
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import { SectionTitle } from "../sectionTitle/SectionTitle";
@@ -33,10 +32,10 @@ export const Contact = () => {
     // .envに追加
     emailjs
       .sendForm(
-        "service_02l84fg", // EmailJSのサービスID
-        "template_2dcb1yu", // EmailJSのテンプレートID
+        process.env.REACT_APP_EMAILJS_SERVICE_ID, // EmailJSのサービスID
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID, // EmailJSのテンプレートID
         form.current, // フォームデータ（useRefで参照）
-        "0lb-7I23RaJQUn1YL" // // EmailJSのPublic Key
+        process.env.REACT_APP_EMAILJS_PUBLILC_KEY // // EmailJSのPublic Key
       )
       .then(
         (result) => {
@@ -114,7 +113,10 @@ export const Contact = () => {
                 placeholder="メールアドレスを入力してください"
                 value={formValue.confirmEmail}
                 onChange={(e) =>
-                  setFormValue((prev) => ({ ...prev, confirmEmail: e.target.value }))
+                  setFormValue((prev) => ({
+                    ...prev,
+                    confirmEmail: e.target.value,
+                  }))
                 }
                 required
               />
