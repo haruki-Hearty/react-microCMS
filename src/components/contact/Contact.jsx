@@ -5,7 +5,7 @@ import { SectionTitle } from "../sectionTitle/SectionTitle";
 import { Container } from "../../components/container/Container";
 import styles from "./Contact.module.scss";
 
-export const ContactForm = () => {
+export const Contact = () => {
   // フォームを参照するためのuseRefを定義
   const form = useRef();
   // エラーはまとめない
