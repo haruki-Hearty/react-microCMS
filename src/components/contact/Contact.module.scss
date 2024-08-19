@@ -4,7 +4,7 @@
 .items {
   margin-top: 50px;
   padding: 20px;
-  background: #F3F3F3;
+  background: #f3f3f3;
 }
 
 .label {
@@ -39,7 +39,7 @@
 .required {
   display: inline-block;
   color: #ffffff;
-  background: #EE4747;
+  background: #ee4747;
   padding: 3px 10px;
   font-size: 14px;
 }
@@ -49,7 +49,7 @@
   position: relative;
   display: block;
   border: solid 1px #333;
-  padding:16px 40px;
+  padding: 16px 40px;
   min-width: 130px;
   text-align: center;
   text-decoration: none;
@@ -58,12 +58,12 @@
   margin: 20px auto 0;
   &::before {
     content: "";
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  width: 15px;
-  height: 6px;
-  background: url(../../assets/arrow.svg)no-repeat center;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 6px;
+    background: url(../../assets/arrow.svg) no-repeat center;
   }
 }

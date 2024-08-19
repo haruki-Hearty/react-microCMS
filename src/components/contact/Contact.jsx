@@ -10,7 +10,13 @@ export const ContactForm = () => {
   const form = useRef();
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
+  // エラーはまとめない
   const [error, setError] = useState("");
+  const [formValue, setFormValue] = useState({
+    useName: "",
+    furigana: "",
+    email: "",
+  });
 
   // フォームが送信されたときに呼び出される関数
   const sendEmail = (e) => {
@@ -24,6 +30,7 @@ export const ContactForm = () => {
     setError("");
 
     // EmailJSのsendFormメソッドを呼び出してメールを送信
+    // .envに追加
     emailjs
       .sendForm(
         "service_02l84fg", // EmailJSのサービスID
@@ -87,8 +94,10 @@ export const ContactForm = () => {
                 type="email"
                 name="user_email"
                 placeholder="メールアドレスを入力してください"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formValue.email}
+                onChange={(e) =>
+                  setFormValue((prev) => ({ ...prev, email: e.target.value }))
+                }
                 required
               />
             </dd>
