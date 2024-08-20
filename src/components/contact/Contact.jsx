@@ -11,7 +11,7 @@ export const Contact = () => {
   const [error, setError] = useState("");
   // バリデーション
   const [formValue, setFormValue] = useState({
-    useName: "",
+    userName: "",
     furigana: "",
     email: "",
     confirmEmail: "",
