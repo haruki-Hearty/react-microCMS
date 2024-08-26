@@ -8,7 +8,7 @@ export const Contact = () => {
   // フォームを参照するためのuseRefを定義
   const form = useRef();
   // エラーはまとめない
-  const [error, setError] = useState("");
+  const [error, setError] = useState([]);
   // バリデーション
   const [formValue, setFormValue] = useState({
     userName: "",
@@ -21,6 +21,10 @@ export const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault(); // ページのリロードを防ぐ
 
+    if (!formValue.userName) {
+      setError("お名前を入力してください");
+      return;
+    }
     if (formValue.email !== formValue.confirmEmail) {
       setError("メールアドレスが一致しません。ご確認ください。");
       return;
@@ -65,8 +69,11 @@ export const Contact = () => {
                 type="text"
                 name="user_name"
                 placeholder="お名前を入力してください"
-                required
+                onChange={(e) =>
+                  setFormValue((prev) => ({ ...prev, userName: e.target.value }))
+                }
               />
+              {error && <p className={styles.error}>{error}</p>}
             </dd>
 
             <dt className={styles.label}>
@@ -79,7 +86,6 @@ export const Contact = () => {
                 type="text"
                 name="user_furigana"
                 placeholder="フリガナを入力してください"
-                required
               />
             </dd>
 
@@ -97,7 +103,6 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormValue((prev) => ({ ...prev, email: e.target.value }))
                 }
-                required
               />
             </dd>
 
@@ -118,7 +123,6 @@ export const Contact = () => {
                     confirmEmail: e.target.value,
                   }))
                 }
-                required
               />
               {error && <p className={styles.error}>{error}</p>}
             </dd>
@@ -133,7 +137,6 @@ export const Contact = () => {
                 name="message"
                 placeholder="お問い合わせ内容を入力してください"
                 rows="5"
-                required
               />
             </dd>
           </dl>
