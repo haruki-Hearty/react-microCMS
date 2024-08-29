@@ -8,8 +8,8 @@ export const Contact = () => {
   // フォームを参照するためのuseRefを定義
   const form = useRef();
   // エラーはまとめない
-  const [error, setError] = useState([]);
-  // バリデーション
+  const [error, setError] = useState({});
+
   const [formValue, setFormValue] = useState({
     userName: "",
     furigana: "",
@@ -17,23 +17,53 @@ export const Contact = () => {
     confirmEmail: "",
   });
 
+  //バリデーション関数
+  const validate = () => {
+    if (!formValue.userName) {
+      setError((prev) => ({
+        ...prev,
+        userName: "お名前を入力してください",
+      }));
+    }
+
+    if (!formValue.furigana) {
+      setError((prev) => ({
+        ...prev,
+        furigana: "フリガナを入力してください",
+      }));
+    }
+
+    if (!formValue.email) {
+      setError((prev) => ({
+        ...prev,
+        email: "メールアドレスを入力してください",
+      }));
+    }
+
+    if (!formValue.textarea) {
+      setError((prev) => ({
+        ...prev,
+        textarea: "お問い合わせ内容を入力してください",
+      }));
+    }
+
+    if (formValue.email !== formValue.confirmEmail) {
+      setError((prev) => ({
+        ...prev,
+        confirmEmail: "メールアドレスが一致しません",
+      }));
+    }
+  };
+
   // フォームが送信されたときに呼び出される関数
   const sendEmail = (e) => {
     e.preventDefault(); // ページのリロードを防ぐ
-
-    if (!formValue.userName) {
-      setError("お名前を入力してください");
+    if (!validate()) {
       return;
-    }
-    if (formValue.email !== formValue.confirmEmail) {
-      setError("メールアドレスが一致しません。ご確認ください。");
-      return;
-    }
-
-    setError("");
-
+    } // バリデーション関数validate()の結果をチェック
+    setError({});
+    setFormValue({})
     // EmailJSのsendFormメソッドを呼び出してメールを送信
-    // .envに追加
     emailjs
       .sendForm(
         process.env.REACT_APP_EMAILJS_SERVICE_ID, // EmailJSのサービスID
@@ -70,10 +100,15 @@ export const Contact = () => {
                 name="user_name"
                 placeholder="お名前を入力してください"
                 onChange={(e) =>
-                  setFormValue((prev) => ({ ...prev, userName: e.target.value }))
+                  setFormValue((prev) => ({
+                    ...prev,
+                    userName: e.target.value,
+                  }))
                 }
               />
-              {error && <p className={styles.error}>{error}</p>}
+              {error.userName && (
+                <p className={styles.error}>{error.userName}</p>
+              )}
             </dd>
 
             <dt className={styles.label}>
@@ -86,7 +121,16 @@ export const Contact = () => {
                 type="text"
                 name="user_furigana"
                 placeholder="フリガナを入力してください"
+                onChange={(e) =>
+                  setFormValue((prev) => ({
+                    ...prev,
+                    furigana: e.target.value,
+                  }))
+                }
               />
+              {error.furigana && (
+                <p className={styles.error}>{error.furigana}</p>
+              )}
             </dd>
 
             <dt className={styles.label}>
@@ -104,6 +148,9 @@ export const Contact = () => {
                   setFormValue((prev) => ({ ...prev, email: e.target.value }))
                 }
               />
+              {error.email && (
+                <p className={styles.error}>{error.email}</p>
+              )}
             </dd>
 
             <dt className={styles.label}>
@@ -124,7 +171,9 @@ export const Contact = () => {
                   }))
                 }
               />
-              {error && <p className={styles.error}>{error}</p>}
+              {error.confirmEmail && (
+                <p className={styles.error}>{error.confirmEmail}</p>
+              )}
             </dd>
 
             <dt className={styles.label}>
@@ -137,7 +186,16 @@ export const Contact = () => {
                 name="message"
                 placeholder="お問い合わせ内容を入力してください"
                 rows="5"
+                onChange={(e) =>
+                  setFormValue((prev) => ({
+                    ...prev,
+                    textarea: e.target.value,
+                  }))
+                }
               />
+              {error.textarea && (
+                <p className={styles.error}>{error.textarea}</p>
+              )}
             </dd>
           </dl>
 
