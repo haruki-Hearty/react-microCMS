@@ -17,52 +17,15 @@ export const Contact = () => {
     confirmEmail: "",
   });
 
-  //バリデーション関数
-  const validate = () => {
-    if (!formValue.userName) {
-      setError((prev) => ({
-        ...prev,
-        userName: "お名前を入力してください",
-      }));
-    }
-
-    if (!formValue.furigana) {
-      setError((prev) => ({
-        ...prev,
-        furigana: "フリガナを入力してください",
-      }));
-    }
-
-    if (!formValue.email) {
-      setError((prev) => ({
-        ...prev,
-        email: "メールアドレスを入力してください",
-      }));
-    }
-
-    if (!formValue.textarea) {
-      setError((prev) => ({
-        ...prev,
-        textarea: "お問い合わせ内容を入力してください",
-      }));
-    }
-
-    if (formValue.email !== formValue.confirmEmail) {
-      setError((prev) => ({
-        ...prev,
-        confirmEmail: "メールアドレスが一致しません",
-      }));
-    }
-  };
-
   // フォームが送信されたときに呼び出される関数
   const sendEmail = (e) => {
     e.preventDefault(); // ページのリロードを防ぐ
-    if (!validate()) {
+    const isCheckedValidate = formValue.userName && formValue.furigana && formValue.email && formValue.confirmEmail
+    if (!isCheckedValidate) {
       return;
-    } // バリデーション関数validate()の結果をチェック
+    }
     setError({});
-    setFormValue({})
+    setFormValue({});
     // EmailJSのsendFormメソッドを呼び出してメールを送信
     emailjs
       .sendForm(
@@ -105,6 +68,19 @@ export const Contact = () => {
                     userName: e.target.value,
                   }))
                 }
+                onBlur={(e) => {
+                  if (!formValue.userName) {
+                    setError((prev) => ({
+                      ...prev,
+                      userName: "お名前を入力してください",
+                    }));
+                    return
+                  }
+                  setError((prev) => ({
+                    ...prev,
+                    userName: "",
+                  }));
+                }}
               />
               {error.userName && (
                 <p className={styles.error}>{error.userName}</p>
@@ -127,6 +103,19 @@ export const Contact = () => {
                     furigana: e.target.value,
                   }))
                 }
+                onBlur={(e) => {
+                  if (!formValue.furigana) {
+                    setError((prev) => ({
+                      ...prev,
+                      furigana: "お名前を入力してください",
+                    }));
+                    return
+                  }
+                  setError((prev) => ({
+                    ...prev,
+                    furigana: "",
+                  }));
+                }}
               />
               {error.furigana && (
                 <p className={styles.error}>{error.furigana}</p>
@@ -147,10 +136,21 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormValue((prev) => ({ ...prev, email: e.target.value }))
                 }
+                onBlur={(e) => {
+                  if (!formValue.email) {
+                    setError((prev) => ({
+                      ...prev,
+                      email: "メールアドレスを入力してください",
+                    }));
+                    return
+                  }
+                  setError((prev) => ({
+                    ...prev,
+                    email: "",
+                  }));
+                }}
               />
-              {error.email && (
-                <p className={styles.error}>{error.email}</p>
-              )}
+              {error.email && <p className={styles.error}>{error.email}</p>}
             </dd>
 
             <dt className={styles.label}>
@@ -170,6 +170,25 @@ export const Contact = () => {
                     confirmEmail: e.target.value,
                   }))
                 }
+                onBlur={(e) => {
+                  if (!formValue.confirmEmail) {
+                    setError((prev) => ({
+                      ...prev,
+                      confirmEmail: "メールアドレスが一致しません",
+                    }));
+                    return
+                  } else if (formValue.email !== formValue.confirmEmail) {
+                    setError((prev) => ({
+                      ...prev,
+                      confirmEmail: "メールアドレスが一致しません",
+                    }));
+                    return
+                  }
+                  setError((prev) => ({
+                    ...prev,
+                    confirmEmail: "",
+                  }));
+                }}
               />
               {error.confirmEmail && (
                 <p className={styles.error}>{error.confirmEmail}</p>
@@ -192,6 +211,19 @@ export const Contact = () => {
                     textarea: e.target.value,
                   }))
                 }
+                onBlur={(e) => {
+                  if (!formValue.textarea) {
+                    setError((prev) => ({
+                      ...prev,
+                      textarea: "メールアドレスを入力してください",
+                    }));
+                    return
+                  }
+                  setError((prev) => ({
+                    ...prev,
+                    textarea: "",
+                  }));
+                }}
               />
               {error.textarea && (
                 <p className={styles.error}>{error.textarea}</p>
