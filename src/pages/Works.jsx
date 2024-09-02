@@ -22,7 +22,7 @@ const Works = () => {
           <SectionTitle japanese="制作実績一覧" english="WORKS" />
         </div>
         <div className={styles.cardInner}>
-          <ul className={styles.Cards}>
+          <ul className={styles.cards}>
             {works.map((work) => (
               <WorkCard key={work.id} work={work} />
             ))}
