@@ -1,4 +1,7 @@
 @use 'global'as *;
+.titleInner {
+  margin-top: 60px;
+}
 
 .cardInner {
   display: flex;
@@ -6,14 +9,14 @@
   row-gap: 40px;
   max-width: 1000px;
   padding: 0 25px;
-  margin: 0 auto;
+  margin: 60px auto 0;
   @include mq() {
     max-width: 400px;
     padding: 0 15px;
   }
 }
 
-.Cards {
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   column-gap: 4%;
@@ -21,4 +24,15 @@
     grid-template-columns: 1fr;
     row-gap: 20px;
   }
+}
+
+.card {
+  display: contents;
+}
+
+.link {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  row-gap: 13px;
 }
