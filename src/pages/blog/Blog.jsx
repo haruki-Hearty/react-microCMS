@@ -5,6 +5,7 @@ import { KeyVisual } from "../../components/KeyVisual/KeyVisual";
 import { Link } from "react-router-dom";
 import { Breadcrumb } from "../../components/breadcrumb/Breadcrumb";
 import { ContainerLarge } from "../../components/container/ContainerLarge";
+import { SectionTitle } from "../../components/sectionTitle/SectionTitle";
 
 const Blog = () => {
   const { blogs, error } = useBlogPosts();
@@ -12,13 +13,15 @@ const Blog = () => {
     {
       title: "ブログ",
     },
-  ]
+  ];
   return (
     <>
       <KeyVisual title="BLOG" subTitle="sub" img="./blog_key_visual.jpg" />
       <ContainerLarge>
         <Breadcrumb pathNames={pathNames} />
-        <h2>ブログ一覧</h2>
+        <div className={styles.titleInner}>
+          <SectionTitle japanese="ブログ一覧" english="BLOG" />
+        </div>
         <div className={styles.cardInner}>
           {error ? (
             <div>{error}</div>
